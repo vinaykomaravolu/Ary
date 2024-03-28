@@ -1,0 +1,13 @@
+// ! Logical NOT
+bool a = true;
+bool b = !a; // b is false
+
+// && Logical AND
+bool c = true;
+bool d = false;
+bool e = c && d; // e is false
+
+// || Logical OR
+bool f = true;
+bool g = false;
+bool h = f || g; // h is true

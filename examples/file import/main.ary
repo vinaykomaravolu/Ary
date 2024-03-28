@@ -1,0 +1,5 @@
+import lib/helper.ary
+
+func main(): void{
+    print(add(1,2)); // Should output 3
+}

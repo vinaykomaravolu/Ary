@@ -1,0 +1,39 @@
+// += Addition Assignment
+int x = 5;
+x += 3; // x is now 8
+
+// -= Subtraction Assignment
+int y = 10;
+y -= 4; // y is now 6
+
+// *= Multiplication Assignment
+int z = 3;
+z *= 5; // z is now 15
+
+// /= Division Assignment
+float m = 20.0;
+m /= 4; // m is now 5.0
+
+// %= Modulus Assignment
+int n = 17;
+n %= 5; // n is now 2
+
+// >>= Right Shift Assignment
+int o = 8;
+o >>= 2; // o is now 2
+
+// <<= Left Shift Assignment
+int p = 4;
+p <<= 2; // p is now 16
+
+// &= Bitwise AND Assignment
+int q = 12;
+q &= 9; // q is now 8
+
+// ^= Bitwise XOR Assignment
+int r = 10;
+r ^= 6; // r is now 12
+
+// |= Bitwise OR Assignment
+int s = 5;
+s |= 3; // s is now 7

@@ -1,0 +1,29 @@
+// == Equal to
+int a = 5;
+int b = 5;
+bool result1 = (a == b); // result1 is true
+
+// != Not equal to
+int c = 10;
+int d = 7;
+bool result2 = (c != d); // result2 is true
+
+// > Greater than
+int e = 8;
+int f = 3;
+bool result3 = (e > f); // result3 is true
+
+// < Less than
+int g = 4;
+int h = 9;
+bool result4 = (g < h); // result4 is true
+
+// >= Greater than or equal to
+int i = 5;
+int j = 5;
+bool result5 = (i >= j); // result5 is true
+
+// <= Less than or equal to
+int k = 7;
+int l = 8;
+bool result6 = (k <= l); // result6 is true

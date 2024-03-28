@@ -1,0 +1,40 @@
+// default return value is void
+func output(string a){
+    print(a);
+}
+
+// Function return type
+func add(int a, int b): int {
+    return a + b;
+}
+
+// Reference parameter
+func addTo(int & a, int b){
+    a += b;
+}
+
+// Templated function
+type<T>
+func subtract(T a, T b): T {
+    return a - b;
+}
+
+// Declare/Define function variable
+func mult<float,float>: float;
+func mult = (float a, float b): float{
+    return a * b;
+}
+
+// Inline functional programming
+float n = (float a, float b): float{
+    return a * b;
+}(10,10); // 100
+
+
+// Main entry function
+func main(){
+    output("hello World");
+    int x = add(1,5); // x = 6
+    addTo(x, 10); / x = 16
+    float y = subtract<float>(10.0,2.5); // y = 7.5
+}

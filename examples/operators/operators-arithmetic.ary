@@ -1,0 +1,28 @@
+// ** Exponent
+int a = 2 ** 3 // 8
+
+// % Modulus/Remainder
+int b = 22 % 8 // 6
+
+// / Division	
+float d = 22 / 8 // 2.75
+int dd 22 / 8 // 2
+
+// * Multiplication	
+int e = 3 * 3 // 9
+
+// - Subtraction	
+int f = 5 - 2 // 3
+
+// + Addition	
+int h = 2 + 2 // 4
+
+// ++ Increment
+int i = 10;
+int k = i++; // k = 10
+int j = ++i; // j = 12
+
+// -- Decrement
+int i = 10;
+int k = i--; // k = 10
+int j = --i; // j = 8

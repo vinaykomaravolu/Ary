@@ -1,0 +1,26 @@
+// ~ Bitwise NOT
+int a = 5;
+int b = ~a; // b is -6
+
+// & Bitwise AND
+int c = 12;
+int d = 9;
+int e = c & d; // e is 8
+
+// | Bitwise OR
+int f = 5;
+int g = 3;
+int h = f | g; // h is 7
+
+// ^ Bitwise XOR
+int i = 10;
+int j = 6;
+int k = i ^ j; // k is 12
+
+// << Left Shift
+int l = 4;
+int m = l << 2; // m is 16
+
+// >> Right Shift
+int n = 16;
+int o = n >> 2; // o is 4
