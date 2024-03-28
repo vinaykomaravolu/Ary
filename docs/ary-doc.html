@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Ary Documentation</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#ary-documentation">Ary Documentation</a>
+<ul>
+<li><a href="#basic-example">Basic example</a></li>
+<li><a href="#data-types">Data Types</a></li>
+<li><a href="#operators">Operators</a>
+<ul>
+<li><a href="#arithmetic-operators">Arithmetic Operators</a></li>
+<li><a href="#assignment-operators">Assignment Operators</a></li>
+<li><a href="#comparison-operators">Comparison Operators</a></li>
+<li><a href="#logical-operators">Logical Operators</a></li>
+<li><a href="#bitwise-operators">Bitwise Operators</a></li>
+<li><a href="#upcoming-operators">Upcoming Operators</a></li>
+</ul>
+</li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#control-flows">Control Flows</a></li>
+<li><a href="#classesobjectsuser-defined-data-types">Classes/Objects/User Defined Data Types</a></li>
+<li><a href="#file-import">File Import</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="ary-documentation">Ary Documentation</h1>
+<h2 id="basic-example">Basic example</h2>
+<pre><code>func main(): void{
+    string n = &quot;Hello world&quot;;
+    print(n);
+}
+</code></pre>
+<h2 id="data-types">Data Types</h2>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Keyword</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td><code>int</code></td>
+<td><code>int a = 1;</code></td>
+<td>Represents a 64-bit integer value.</td>
+</tr>
+<tr>
+<td>Float</td>
+<td><code>float</code></td>
+<td><code>float b = 2.0;</code></td>
+<td>Represents a floating-point number.</td>
+</tr>
+<tr>
+<td>String literals</td>
+<td><code>string</code></td>
+<td><code>string d = &quot;hello&quot;;</code></td>
+<td>Represents a sequence of characters.</td>
+</tr>
+<tr>
+<td>Character</td>
+<td><code>char</code></td>
+<td><code>char c = 'h';</code></td>
+<td>Represents a single character.</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>bool</code></td>
+<td><code>bool j = false;</code></td>
+<td>Represents a boolean value (true/false).</td>
+</tr>
+<tr>
+<td>Function</td>
+<td><code>func</code></td>
+<td><code>func add&lt;int,int,int&gt;: int = (int a, int b, int c): int{ return a + b + c; }</code></td>
+<td>Represents a function variable.</td>
+</tr>
+<tr>
+<td>Array</td>
+<td><code>int[]</code></td>
+<td><code>int[3] i; i[0] = 1; i[1] = 2; i[2] = 3;</code></td>
+<td>Represents an array of integers.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>int[] k = {1, 3, 4, 5};</code></td>
+<td>Represents a dynamically sized array of integers.</td>
+</tr>
+<tr>
+<td>Struct</td>
+<td><code>struct</code></td>
+<td><code>struct Point { int x; int y; } Point p; p.x = 10; p.y = 20;</code></td>
+<td>Represents a composite data type consisting of multiple fields.</td>
+</tr>
+<tr>
+<td>Pointer</td>
+<td><code>int*</code></td>
+<td><code>int x = 42; int* ptr = &amp;x;</code></td>
+<td>Represents a pointer to an integer value.</td>
+</tr>
+<tr>
+<td>Enum</td>
+<td><code>enum</code></td>
+<td><code>enum Color { RED, GREEN, BLUE } Color c = Color.RED;</code></td>
+<td>Represents a set of named integer constants.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="operators">Operators</h2>
+<h3 id="arithmetic-operators">Arithmetic Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator Name</th>
+<th>Operator Symbol</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exponent</td>
+<td>**</td>
+<td><code>int a = 2 ** 3;</code></td>
+<td>Calculates the exponent of a number.</td>
+</tr>
+<tr>
+<td>Modulus</td>
+<td>%</td>
+<td><code>int b = 22 % 8;</code></td>
+<td>Finds the remainder of division.</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>/</td>
+<td><code>float d = 22 / 8;</code></td>
+<td>Performs division.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>int dd = 22 / 8;</code></td>
+<td>Performs integer division (floor division).</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>*</td>
+<td><code>int e = 3 * 3;</code></td>
+<td>Multiplies two numbers.</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td>-</td>
+<td><code>int f = 5 - 2;</code></td>
+<td>Subtracts one number from another.</td>
+</tr>
+<tr>
+<td>Addition</td>
+<td>+</td>
+<td><code>int h = 2 + 2;</code></td>
+<td>Adds two numbers.</td>
+</tr>
+<tr>
+<td>Increment</td>
+<td>++</td>
+<td><code>int i = 10; int k = i++;</code></td>
+<td>Post-increment: Increments a variable by 1 after returning its value.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>int i = 10; int j = ++i;</code></td>
+<td>Pre-increment: Increments a variable by 1 before returning its value.</td>
+</tr>
+<tr>
+<td>Decrement</td>
+<td>--</td>
+<td><code>int i = 10; int k = i--;</code></td>
+<td>Post-decrement: Decrements a variable by 1 after returning its value.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>int i = 10; int j = --i;</code></td>
+<td>Pre-decrement: Decrements a variable by 1 before returning its value.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="assignment-operators">Assignment Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator Name</th>
+<th>Symbol</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition Assignment</td>
+<td>+=</td>
+<td><code>x += 3;</code></td>
+<td>Adds the value on the right to the variable on the left and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Subtraction Assignment</td>
+<td>-=</td>
+<td><code>y -= 4;</code></td>
+<td>Subtracts the value on the right from the variable on the left and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Multiplication Assignment</td>
+<td>*=</td>
+<td><code>z *= 5;</code></td>
+<td>Multiplies the variable on the left by the value on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Division Assignment</td>
+<td>/=</td>
+<td><code>m /= 4;</code></td>
+<td>Divides the variable on the left by the value on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Modulus Assignment</td>
+<td>%=</td>
+<td><code>n %= 5;</code></td>
+<td>Performs modulus operation on the variable on the left with the value on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Right Shift Assignment</td>
+<td>&gt;&gt;=</td>
+<td><code>o &gt;&gt;= 2;</code></td>
+<td>Shifts the bits of the variable on the left to the right by the number of bits specified on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Left Shift Assignment</td>
+<td>&lt;&lt;=</td>
+<td><code>p &lt;&lt;= 2;</code></td>
+<td>Shifts the bits of the variable on the left to the left by the number of bits specified on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Bitwise AND Assignment</td>
+<td>&amp;=</td>
+<td><code>q &amp;= 9;</code></td>
+<td>Performs bitwise AND operation between the variable on the left and the value on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Bitwise XOR Assignment</td>
+<td>^=</td>
+<td><code>r ^= 6;</code></td>
+<td>Performs bitwise XOR operation between the variable on the left and the value on the right and assigns the result to the variable.</td>
+</tr>
+<tr>
+<td>Bitwise OR Assignment</td>
+<td>|=</td>
+<td><code>s &amp;#124;= 3;</code></td>
+<td>Performs bitwise OR operation between the variable on the left and the value on the right and assigns the result to the variable.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison-operators">Comparison Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator Name</th>
+<th>Symbol</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equal to</td>
+<td>==</td>
+<td><code>bool result1 = (a == b);</code></td>
+<td>Checks if the values on both sides are equal.</td>
+</tr>
+<tr>
+<td>Not equal to</td>
+<td>!=</td>
+<td><code>bool result2 = (c != d);</code></td>
+<td>Checks if the values on both sides are not equal.</td>
+</tr>
+<tr>
+<td>Greater than</td>
+<td>&gt;</td>
+<td><code>bool result3 = (e &gt; f);</code></td>
+<td>Checks if the value on the left is greater than the value on the right.</td>
+</tr>
+<tr>
+<td>Less than</td>
+<td>&lt;</td>
+<td><code>bool result4 = (g &lt; h);</code></td>
+<td>Checks if the value on the left is less than the value on the right.</td>
+</tr>
+<tr>
+<td>Greater than or equal to</td>
+<td>&gt;=</td>
+<td><code>bool result5 = (i &gt;= j);</code></td>
+<td>Checks if the value on the left is greater than or equal to the value on the right.</td>
+</tr>
+<tr>
+<td>Less than or equal to</td>
+<td>&lt;=</td>
+<td><code>bool result6 = (k &lt;= l);</code></td>
+<td>Checks if the value on the left is less than or equal to the value on the right.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="logical-operators">Logical Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator Name</th>
+<th>Symbol</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logical NOT</td>
+<td>!</td>
+<td><code>bool a = true; bool b = !a;</code></td>
+<td>Negates the value of the expression.</td>
+</tr>
+<tr>
+<td>Logical AND</td>
+<td>&amp;&amp;</td>
+<td><code>bool c = true; bool d = false; bool e = c &amp;&amp; d;</code></td>
+<td>Returns true if both expressions evaluate to true.</td>
+</tr>
+<tr>
+<td>Logical OR</td>
+<td>||</td>
+<td><code>bool f = true; bool g = false; bool h = f || g;</code></td>
+<td>Returns true if either expression evaluates to true.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bitwise-operators">Bitwise Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator Name</th>
+<th>Symbol</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bitwise NOT</td>
+<td>~</td>
+<td><code>int a = 5; int b = ~a;</code></td>
+<td>Bitwise negation of the operand.</td>
+</tr>
+<tr>
+<td>Bitwise AND</td>
+<td>&amp;</td>
+<td><code>int c = 12; int d = 9; int e = c &amp; d;</code></td>
+<td>Bitwise AND operation between the operands.</td>
+</tr>
+<tr>
+<td>Bitwise OR</td>
+<td>|</td>
+<td><code>int f = 5; int g = 3; int h = f | g;</code></td>
+<td>Bitwise OR operation between the operands.</td>
+</tr>
+<tr>
+<td>Bitwise XOR</td>
+<td>^</td>
+<td><code>int i = 10; int j = 6; int k = i ^ j;</code></td>
+<td>Bitwise XOR operation between the operands.</td>
+</tr>
+<tr>
+<td>Left Shift</td>
+<td>&lt;&lt;</td>
+<td><code>int l = 4; int m = l &lt;&lt; 2;</code></td>
+<td>Shifts the bits of the first operand to the left by the number of bits specified by the second operand.</td>
+</tr>
+<tr>
+<td>Right Shift</td>
+<td>&gt;&gt;</td>
+<td><code>int n = 16; int o = n &gt;&gt; 2;</code></td>
+<td>Shifts the bits of the first operand to the right by the number of bits specified by the second operand.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="upcoming-operators">Upcoming Operators</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Pointer *,-&gt;</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Derefence $</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Inline if-else ?:</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Parallelism</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Null pointer check ??</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Null pointer inline assignment ??=</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Return Value</td>
+<td><code>func output(string a) { print(a); }</code></td>
+<td>Function with default return type <code>void</code>.</td>
+</tr>
+<tr>
+<td>Function Return Type</td>
+<td><code>func add(int a, int b): int { return a + b; }</code></td>
+<td>Function with explicit return type <code>int</code>.</td>
+</tr>
+<tr>
+<td>Reference Parameter</td>
+<td><code>func addTo(int &amp; a, int b) { a += b; }</code></td>
+<td>Function with a reference parameter.</td>
+</tr>
+<tr>
+<td>Templated Function</td>
+<td><code>type&lt;T&gt;; func subtract(T a, T b): T { return a - b; }</code></td>
+<td>Function templated on type <code>T</code>.</td>
+</tr>
+<tr>
+<td>Declare/Define Function Var</td>
+<td><code>func mult&lt;float,float&gt;: float;</code></td>
+<td>Declaration of a function variable <code>mult</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>func mult = (float a, float b): float { return a * b; }</code></td>
+<td>Definition of the function variable <code>mult</code>.</td>
+</tr>
+<tr>
+<td>Inline Functional Programming</td>
+<td><code>float n = (float a, float b): float { return a * b; }(10,10);</code></td>
+<td>Inline functional declaration and call.</td>
+</tr>
+<tr>
+<td>Main Entry Function</td>
+<td><code>func main() { ... }</code></td>
+<td>Main entry function.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="control-flows">Control Flows</h2>
+<table>
+<thead>
+<tr>
+<th>Control Flow</th>
+<th>Keyword</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>If Statement</td>
+<td>if, else, else if</td>
+<td><code>if !(true &amp;&amp; true) { print(&quot;false&quot;); } else if !false { print(&quot;true&quot;); } else { print(&quot;false&quot;); }</code></td>
+<td>Executes different code blocks based on conditions.</td>
+</tr>
+<tr>
+<td>While Statement</td>
+<td>while</td>
+<td><code>int a = 0; while a &lt; 10 { print(a); a++; }</code></td>
+<td>Executes a block of code repeatedly as long as a condition is true.</td>
+</tr>
+<tr>
+<td>For Statement</td>
+<td>for</td>
+<td><code>for int i: 1..100 { print(i); }</code></td>
+<td>Iterates a block of code a fixed number of times.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="classesobjectsuser-defined-data-types">Classes/Objects/User Defined Data Types</h2>
+<p>Currently there is no support for user defined data types</p>
+<h2 id="file-import">File Import</h2>
+<p>You are able to import code from relative files. Conflicting declarations will choose the first declaration found and ignore the rest.</p>
+<pre><code>// File: lib/helper.ary
+
+func add(int a, int b): int {
+    return a + b;
+}
+
+</code></pre>
+<pre><code>import lib/helper.ary
+
+func main(): void{
+    print(add(1,2)); // Should output 3
+}
+</code></pre>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

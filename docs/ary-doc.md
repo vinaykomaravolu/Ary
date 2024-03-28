@@ -98,8 +98,6 @@ func main(): void{
 
 ### Bitwise Operators
 
-Here's the updated markdown table for the bitwise operators:
-
 | Operator Name    | Symbol | Example                            | Description                            |
 |------------------|--------|------------------------------------|----------------------------------------|
 | Bitwise NOT      | ~      | `int a = 5; int b = ~a;`           | Bitwise negation of the operand.       |
@@ -109,7 +107,6 @@ Here's the updated markdown table for the bitwise operators:
 | Left Shift       | <<     | `int l = 4; int m = l << 2;`         | Shifts the bits of the first operand to the left by the number of bits specified by the second operand. |
 | Right Shift      | >>     | `int n = 16; int o = n >> 2;`       | Shifts the bits of the first operand to the right by the number of bits specified by the second operand. |
 
-This table now includes the operator name, symbol, example, and description for each bitwise operator.
 
 ### Upcoming Operators
 
@@ -135,15 +132,11 @@ This table now includes the operator name, symbol, example, and description for 
 
 ## Control Flows
 
-Sure, here's the updated markdown table with the "Keyword" and "Example" columns swapped:
-
 | Control Flow | Keyword | Example | Description |
 |--------------|---------|---------|-------------|
 | If Statement | if, else, else if | ```if !(true && true) { print("false"); } else if !false { print("true"); } else { print("false"); }``` | Executes different code blocks based on conditions. |
 | While Statement | while | ```int a = 0; while a < 10 { print(a); a++; }``` | Executes a block of code repeatedly as long as a condition is true. |
 | For Statement | for | ```for int i: 1..100 { print(i); }``` | Iterates a block of code a fixed number of times. |
-
-This table now presents the control flow constructs with the "Keyword" column appearing before the "Example" column.
 
 ## Classes/Objects/User Defined Data Types
 
