@@ -77,7 +77,6 @@ func main(): void{
 
 ### Comparison Operators
 
-
 | Operator Name          | Symbol | Example                               | Description                                           |
 |------------------------|--------|---------------------------------------|-------------------------------------------------------|
 | Equal to               | ==     | `bool result1 = (a == b);`           | Checks if the values on both sides are equal.        |
