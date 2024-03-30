@@ -21,4 +21,7 @@ target_include_directories(${BINARY}
 )
 
 add_subdirectory(lib/googletest)
+add_subdirectory(lib/spdlog)
 add_subdirectory(test)
+
+target_link_libraries(${BINARY} PRIVATE spdlog::spdlog)
