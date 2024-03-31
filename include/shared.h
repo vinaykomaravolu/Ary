@@ -1,23 +1,27 @@
-#include "diagnostic.h"
+#ifndef INCLUDE_SHARED_H_
+#define INCLUDE_SHARED_H_
+
+#include <memory>
+#include <string>
+#include <unordered_map>
 
 using namespace std;
 
 namespace ary {
 
+enum Disposition {
+  info,
+  warn,
+  error,
+  error_as_warn,
+  critical,
+  critical_as_warn,
+  ignore,
+};
+
 // Compiler diagnostics
-unordered_map<string, Disposition> gCompDispMap = {{"TEST", info}};
-
-// Ary diagnostics
-unordered_map<string, Disposition> gAryDispMap = {{"TEST", error}};
-
-// Global diagnostics
-shared_ptr<Diagnostics> gCompDiag =
-    std::make_shared<Diagnostics>("Compiler", gCompDispMap);
-shared_ptr<Diagnostics> gAryDiag =
-    std::make_shared<Diagnostics>("Ary", gAryDispMap);
-
-// Macro definition for easy access to diagnostics
-#define COMP_DIAG_MSG(DIAG, MSG) gCompDiag->msg(DIAG, MSG);
-#define ARY_DIAG_MSG(DIAG, MSG) gAryDiag->msg(DIAG, MSG);
-
+inline std::unordered_map<std::string, Disposition> gCompDispMap = {
+    {"TEST", info}};
 }  // namespace ary
+
+#endif  // INCLUDE_SHARED_H_
