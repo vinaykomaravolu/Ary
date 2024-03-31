@@ -19,4 +19,4 @@ jobs:
     - name: make
       run: cd build && make
     - name: Run Test
-      run: /home/runner/work/ary/build/test/Ary_test
+      run: cd build/test && ./Ary_test
