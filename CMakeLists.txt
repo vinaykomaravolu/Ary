@@ -30,3 +30,4 @@ add_subdirectory(lib/spdlog)
 add_subdirectory(test)
 
 target_link_libraries(${BINARY} PRIVATE spdlog::spdlog)
+target_link_libraries(${BINARY}_lib PRIVATE spdlog::spdlog)

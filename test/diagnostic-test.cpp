@@ -8,4 +8,4 @@
 
 using namespace std;
 
-TEST(BTest, TestingB) { EXPECT_EQ(1, 1); }
+TEST(Diagnostic, Basic) { EXPECT_EQ(1, 1); }
