@@ -26,7 +26,7 @@ TEST(Diagnostics, Accessors) {
   diag.msg("TESTB", "This is message test for accessors TESTB warn");
   diag.RemoveDiagnostic("TESTA");
 
-  EXPECT_EQ(diag.getDiagnosticMap().size(), 10);
+  EXPECT_EQ(diag.getDiagnosticMap().size(), 1);
 }
 
 TEST(Diagnostics, Dispositions) {
