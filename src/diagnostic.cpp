@@ -28,7 +28,7 @@ void Diagnostics::msg(string diag, string msg) {
     ss << "Diagnostic not found: " << diag;
     spLoggerErr_->error(ss.str());
   }
-
+  msg = diag + ": " + msg;
   Disposition disp = mDspositions_[diag];
   switch (disp) {
     case info:
@@ -73,10 +73,10 @@ Diagnostics& Diagnostics::getInstance() {
 Diagnostics::Diagnostics(string type) {
   sType_ = type;
   spLogger_ = spdlog::stdout_color_mt(type);
-  spLogger_->set_pattern("[%D %T] [%^%l%$] [%n] [%s] [%!] [line %#]: %v");
+  spLogger_->set_pattern("[%D %T] [%^%l%$] [%n] [%s] [%!] [line %#] %v");
 
   spLoggerErr_ = spdlog::stderr_color_mt(type + " stderr");
-  spLoggerErr_->set_pattern("[%D %T] [%^%l%$] [%n] [%s] [%!] [line %#]: %v");
+  spLoggerErr_->set_pattern("[%D %T] [%^%l%$] [%n] [%s] [%!] [line %#] %v");
 }
 
 Diagnostics::Diagnostics(string type, unordered_map<string, Disposition> disp)

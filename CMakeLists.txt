@@ -40,10 +40,11 @@ target_include_directories(${BINARY}_lib
 
 add_subdirectory(lib/googletest)
 add_subdirectory(lib/spdlog)
+add_subdirectory(lib/argparse)
 add_subdirectory(test)
 
-target_link_libraries(${BINARY} PRIVATE spdlog::spdlog)
-target_link_libraries(${BINARY}_lib PRIVATE spdlog::spdlog)
+target_link_libraries(${BINARY} PRIVATE spdlog::spdlog argparse)
+target_link_libraries(${BINARY}_lib PRIVATE spdlog::spdlog argparse)
 
 # Custom target to run cpplint before building
 add_custom_target(run_cpplint

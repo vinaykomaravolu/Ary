@@ -7,3 +7,6 @@
 [submodule "tools/cpplint"]
 	path = tools/cpplint
 	url = https://github.com/cpplint/cpplint.git
+[submodule "lib/argparse"]
+	path = lib/argparse
+	url = https://github.com/p-ranav/argparse.git

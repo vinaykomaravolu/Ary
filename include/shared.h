@@ -21,7 +21,9 @@ enum Disposition {
 
 // Compiler diagnostics
 inline std::unordered_map<std::string, Disposition> gCompDispMap = {
-    {"TEST", info}};
+    {"FILE_DOES_NOT_EXIST", error}};
 }  // namespace ary
+
+// lexer
 
 #endif  // INCLUDE_SHARED_H_
