@@ -69,14 +69,13 @@ Diagnostics& Diagnostics::getInstance() {
 }
 
 // Private
-
 Diagnostics::Diagnostics(string type) {
   sType_ = type;
   spLogger_ = spdlog::stdout_color_mt(type);
-  spLogger_->set_pattern("[%D %T] [%^%l%$] [%n] [%s] [%!] [line %#] %v");
+  spLogger_->set_pattern("[%D %T] [%^%l%$] [%n] %v");
 
   spLoggerErr_ = spdlog::stderr_color_mt(type + " stderr");
-  spLoggerErr_->set_pattern("[%D %T] [%^%l%$] [%n] [%s] [%!] [line %#] %v");
+  spLoggerErr_->set_pattern("[%D %T] [%^%l%$] [%n] %v");
 }
 
 Diagnostics::Diagnostics(string type, unordered_map<string, Disposition> disp)
