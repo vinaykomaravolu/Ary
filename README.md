@@ -21,6 +21,8 @@ TODO: What is build for what
 
 TODO: How to build and use ary programming language 
 
+* git clone --recurse-submodules https://github.com/vinaykomaravolu/Ary.git
+
 ## Documentation/Tutorial
 
 The language documentation can be found here: [Ary Language Documentation](docs/ary-doc.md). More concrete examples can be found in examples folder.
