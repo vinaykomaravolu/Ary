@@ -247,6 +247,7 @@ ostream& operator<<(ostream& os, const Token& token) {
   }
 
   os << ", Lexme: " << token.sLexme_;
+  os << ", Line: " << token.iLine_;
   return os;  // Closing the function here
 }
 

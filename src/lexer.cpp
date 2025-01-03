@@ -32,126 +32,133 @@ void Lexer::scanFile(string filePath) {
   string lexme = "";
   file.read(buffer.data(), bufferSize);
 
+  // TODO - Add buffer size processing so it doesnt create a crazy large buffer
   while (current < bufferSize) {
     forward = current + 1;
     switch (buffer[current]) {
       // DELIMITERS
+      case '\n':  // LPAREN
+        line++;
+        break;
       case '(':  // LPAREN
-        addToken(TokenType::LPAREN, "(");
+        addToken(TokenType::LPAREN, "(", line);
         break;
       case ')':  // RPAREN
-        addToken(TokenType::RPAREN, ")");
+        addToken(TokenType::RPAREN, ")", line);
         break;
       case '{':  // LBRACE
-        addToken(TokenType::LBRACE, "{");
+        addToken(TokenType::LBRACE, "{", line);
         break;
       case '}':  // RBRACE
-        addToken(TokenType::RBRACE, "}");
+        addToken(TokenType::RBRACE, "}", line);
         break;
       case '[':  // LBRACKET
-        addToken(TokenType::LBRACKET, "[");
+        addToken(TokenType::LBRACKET, "[", line);
         break;
       case ']':  // RBRACKET
-        addToken(TokenType::RBRACKET, "]");
+        addToken(TokenType::RBRACKET, "]", line);
         break;
       case ';':  // SEMICOLON
-        addToken(TokenType::SEMICOLON, ";");
+        addToken(TokenType::SEMICOLON, ";", line);
         break;
       case ',':  // COMMA
-        addToken(TokenType::COMMA, ",");
+        addToken(TokenType::COMMA, ",", line);
         break;
       case ':':  // COLON
-        addToken(TokenType::COLON, ":");
+        addToken(TokenType::COLON, ":", line);
         break;
       // OPERATORS
       case '!':  // NOT or NOT_EQUAL
         if (forward < bufferSize && (buffer[forward] == '=')) {
-          addToken(TokenType::NOT_EQUAL, "!=");
+          addToken(TokenType::NOT_EQUAL, "!=", line);
         } else {
-          addToken(TokenType::NOT, "!");
+          addToken(TokenType::NOT, "!", line);
         }
         break;
       case '&':  // BIT_AND or AND
         if (forward < bufferSize && (buffer[forward] == '&')) {
-          addToken(TokenType::AND, "&&");
+          addToken(TokenType::AND, "&&", line);
         } else {
-          addToken(TokenType::BIT_AND, "&");
+          addToken(TokenType::BIT_AND, "&", line);
         }
         break;
       case '|':  // OR or BIT_OR
         if (forward < bufferSize && (buffer[forward] == '|')) {
-          addToken(TokenType::OR, "||");
+          addToken(TokenType::OR, "||", line);
         } else {
-          addToken(TokenType::BIT_OR, "|");
+          addToken(TokenType::BIT_OR, "|", line);
         }
         break;
       case '=':  // EQUAL or ASSIGN
         if (forward < bufferSize && (buffer[forward] == '=')) {
-          addToken(TokenType::EQUAL, "==");
+          addToken(TokenType::EQUAL, "==", line);
         } else {
-          addToken(TokenType::ASSIGN, "=");
+          addToken(TokenType::ASSIGN, "=", line);
         }
         break;
       case '>':  // GREATER or GREATER_EQUAL
         if (forward < bufferSize && (buffer[forward] == '=')) {
-          addToken(TokenType::GREATER_EQUAL, ">=");
+          addToken(TokenType::GREATER_EQUAL, ">=", line);
         } else {
-          addToken(TokenType::GREATER, ">");
+          addToken(TokenType::GREATER, ">", line);
         }
         break;
       case '<':  // LESS or LESS_EQUAL
         if (forward < bufferSize && (buffer[forward] == '=')) {
-          addToken(TokenType::LESS_EQUAL, "<=");
+          addToken(TokenType::LESS_EQUAL, "<=", line);
         } else {
-          addToken(TokenType::LESS, "<");
+          addToken(TokenType::LESS, "<", line);
         }
         break;
       case '^':  // BIT_XOR
-        addToken(TokenType::BIT_XOR, "^");
+        addToken(TokenType::BIT_XOR, "^", line);
         break;
       case '~':  // BIT_NOT
-        addToken(TokenType::BIT_NOT, "~");
+        addToken(TokenType::BIT_NOT, "~", line);
         break;
       case '+':  // ADDITION or INCREMENT
         if (forward < bufferSize && (buffer[forward] == '+')) {
-          addToken(TokenType::INCREMENT, "++");
+          addToken(TokenType::INCREMENT, "++", line);
         } else {
-          addToken(TokenType::ADDITION, "+");
+          addToken(TokenType::ADDITION, "+", line);
         }
         break;
       case '-':  // SUBTRACTION or DECREMENT
         if (forward < bufferSize && (buffer[forward] == '-')) {
-          addToken(TokenType::DECREMENT, "--");
+          addToken(TokenType::DECREMENT, "--", line);
         } else if (forward < bufferSize && (buffer[forward] == '>')) {
-          addToken(TokenType::ARROW, "->");
+          addToken(TokenType::ARROW, "->", line);
         } else {
-          addToken(TokenType::SUBTRACTION, "-");
+          addToken(TokenType::SUBTRACTION, "-", line);
         }
         break;
       case '*':  // MULTIPLICATION or EXPONENT
         if (forward < bufferSize && (buffer[forward] == '*')) {
-          addToken(TokenType::EXPONENT, "**");
+          addToken(TokenType::EXPONENT, "**", line);
         } else {
-          addToken(TokenType::MULTIPLICATION, "*");
+          addToken(TokenType::MULTIPLICATION, "*", line);
         }
         break;
       case '/':  // DIVISION or COMMENT
         if (forward < bufferSize && (buffer[forward] == '/')) {
-          addToken(TokenType::COMMENT, "//");
+          string comment = "//";
 
-          while (forward < bufferSize && buffer[forward++] == '\n');
+          while (forward < bufferSize && buffer[++forward] != '\n') {
+            comment += buffer[forward];
+          }
+          addToken(TokenType::COMMENT, comment, line);
         } else {
-          addToken(TokenType::DIVISION, "/");
+          addToken(TokenType::DIVISION, "/", line);
         }
         break;
       case '%':  // MODULUS
-        addToken(TokenType::MODULUS, "%");
+        addToken(TokenType::MODULUS, "%", line);
         break;
       case '.':  // MEMBER_ACCESS
-        addToken(TokenType::MEMBER_ACCESS, ".");
+        addToken(TokenType::MEMBER_ACCESS, ".", line);
         break;
       case '#':  // COMMENT
-        addToken(TokenType::COMMENT, "#");
+        addToken(TokenType::COMMENT, "#", line);
         break;
       case '\'':  // CHAR_LITERAL
       {
@@ -168,7 +175,7 @@ void Lexer::scanFile(string filePath) {
           msg << "Incorrect string located at " << current;
           DIAG_COMP_MSG("LEXER_SCANNER_ERROR", msg.str());
         }
-        addToken(TokenType::CHAR_LITERAL, character);
+        addToken(TokenType::CHAR_LITERAL, character, line);
         break;
       }
       case '"':  // STRING_LITERAL
@@ -186,7 +193,7 @@ void Lexer::scanFile(string filePath) {
           msg << "Incorrect string located at " << current;
           DIAG_COMP_MSG("LEXER_SCANNER_ERROR", msg.str());
         }
-        addToken(TokenType::STRING_LITERAL, stringLiteral);
+        addToken(TokenType::STRING_LITERAL, stringLiteral, line);
         break;
       }
       default:
@@ -202,10 +209,10 @@ void Lexer::scanFile(string filePath) {
             while (forward < bufferSize && isdigit(buffer[forward])) {
               number += buffer[forward++];
             }
-            addToken(TokenType::FLOAT_LITERAL, number);
+            addToken(TokenType::FLOAT_LITERAL, number, line);
             break;
           }
-          addToken(TokenType::INTEGER_LITERAL, number);
+          addToken(TokenType::INTEGER_LITERAL, number, line);
           break;
         } else if (isalpha(buffer[current])) {
           string keyword = "";
@@ -240,10 +247,10 @@ void Lexer::scanFile(string filePath) {
 
           auto it = keywordMap.find(keyword);
           if (it != keywordMap.end()) {
-            addToken(it->second, keyword);  // KEYWORDS
+            addToken(it->second, keyword, line);  // KEYWORDS
           } else {
             // If its not anything else then it is an identifer
-            addToken(TokenType::IDENTIFIER, keyword);
+            addToken(TokenType::IDENTIFIER, keyword, line);
           }
         }
 
@@ -266,8 +273,8 @@ void Lexer::scanFile(string filePath) {
   file.close();
 }
 
-void Lexer::addToken(TokenType ttype, string lexme) {
-  vTokens_.emplace_back(std::make_shared<Token>(ttype, lexme));
+void Lexer::addToken(TokenType ttype, string lexme, int line) {
+  vTokens_.emplace_back(std::make_shared<Token>(ttype, lexme, line));
 }
 
 std::ostream& operator<<(std::ostream& os, const Lexer& lexer) {

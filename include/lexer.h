@@ -21,7 +21,7 @@ class Lexer {
 
   void scanStr(string inputStr);
   void scanFile(string filePath);
-  void addToken(TokenType ttype, string lexme);
+  void addToken(TokenType ttype, string lexme, int line);
 
  private:
   vector<shared_ptr<Token>> vTokens_;

@@ -36,6 +36,22 @@ TEST(Lexer, ScanFile) {
             bool a = !(true);
             int b = 123;
             float c = 3.14159265;
+             // If statement
+            if !(true && true) {
+                print("false");
+            }else if !false{
+                print("true");
+            }else{
+                print("false");
+            }
+
+            // While statement
+            int a = 0;
+            while a < 10 {
+                print(a);
+                a++;
+            }
+
             print(n);
         }
     )";

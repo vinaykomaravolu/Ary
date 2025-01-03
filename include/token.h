@@ -107,15 +107,19 @@ enum class TokenType {
 
 class Token {
  public:
-  Token(TokenType type, string lexme) : eType_(type), sLexme_(lexme) {};
+  Token(TokenType type, string lexme, int line)
+      : eType_(type), sLexme_(lexme), iLine_(line) {};
   TokenType getTokenType() { return eType_; };
-  string getLexme() { return sLexme_; }
+  string getLexme() { return sLexme_; };
+  int getLine() { return iLine_; };
   void setTokenType(TokenType type) { eType_ = type; };
   void setLexme(string lexme) { sLexme_ = lexme; };
+  void setLine(int line) { iLine_ = line; };
 
  private:
   TokenType eType_;
   string sLexme_;
+  int iLine_;
   friend ostream& operator<<(ostream& os, const Token& token);
 };
 }  // namespace ary
