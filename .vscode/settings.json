@@ -83,6 +83,8 @@
     "span": "cpp",
     "unordered_set": "cpp",
     "variant": "cpp",
-    "numeric": "cpp"
-  }
+    "numeric": "cpp",
+    "regex": "cpp"
+  },
+  "editor.formatOnSave": true
 }

@@ -8,7 +8,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "shared.h"
+#include "diagnostic.h"
 
 using namespace std;
 

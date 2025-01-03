@@ -3,9 +3,14 @@
 
 #include <fstream>
 #include <iostream>
+#include <map>
+#include <regex>
 #include <string>
+#include <vector>
 
-#inlcude "token.h"
+#include "diagnostic.h"
+#include "symboltable.h"
+#include "token.h"
 
 using namespace std;
 
@@ -13,12 +18,14 @@ namespace ary {
 class Lexer {
  public:
   Lexer();
-  void scan(string fileStr);
-  void scan(ifstream file);
-  void setPattern();     // TODO
-  void removePattern();  // TODO
+
+  void scanStr(string inputStr);
+  void scanFile(string filePath);
+  void addToken(TokenType ttype, string lexme);
 
  private:
+  vector<shared_ptr<Token>> vTokens_;
+  friend ostream& operator<<(ostream& os, const Lexer& lexer);
 };
 }  // namespace ary
 

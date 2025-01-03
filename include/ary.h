@@ -4,7 +4,8 @@
 #include <memory.h>
 
 #include "diagnostic.h"
-#include "shared.h"
+#include "lexer.h"
+#include "token.h"
 
 using namespace std;
 

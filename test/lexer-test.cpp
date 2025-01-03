@@ -3,19 +3,20 @@
 #include <gtest/gtest.h>
 #include <stdlib.h> /* srand, rand */
 
+#include <fstream>
 #include <iostream>
 #include <random>
 #include <string>
 #include <unordered_map>
 
-#include "shared.h"
+#include "token.h"
 
 using namespace std;
 using spLexer = shared_ptr<ary::Lexer>;
 
 TEST(Lexer, Accessors) {}
 
-TEST(Lexer, Scan) {
+TEST(Lexer, ScanString) {
   std::string input = R"(
         func main(): void{
             string n = "Hello world";
@@ -23,5 +24,29 @@ TEST(Lexer, Scan) {
         }
     )";
 
-  spLexer lex = make_shared<ary::Lexer>();
+  // spLexer lex = make_shared<ary::Lexer>();
+}
+
+TEST(Lexer, ScanFile) {
+  std::string input = R"(
+        // This is a comment
+        func main(): void{
+            string n = "Hello world";
+            char d = 'a';
+            bool a = !(true);
+            int b = 123;
+            float c = 3.14159265;
+            print(n);
+        }
+    )";
+
+  std::ofstream outFile("ScanFile-Test.ary");
+  EXPECT_TRUE(outFile.is_open());
+
+  outFile << input;
+
+  outFile.close();
+
+  spLexer lexer = make_shared<ary::Lexer>();
+  lexer->scanFile("ScanFile-Test.ary");
 }

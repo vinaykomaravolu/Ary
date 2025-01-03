@@ -13,11 +13,19 @@
 #include <string>
 #include <unordered_map>
 
-#include "shared.h"
-
 using namespace std;
 
 namespace ary {
+
+enum Disposition {
+  info,
+  warn,
+  error,
+  error_as_warn,
+  critical,
+  critical_as_warn,
+  ignore,
+};
 
 class Diagnostics {
  public:
@@ -27,6 +35,7 @@ class Diagnostics {
   void RemoveDiagnostic(string diag);
   void msg(string diag, string msg);
   static Diagnostics& getInstance();
+  void setExceptions(bool enable);
 
  private:
   Diagnostics(string type);
@@ -36,8 +45,15 @@ class Diagnostics {
   unordered_map<string, Disposition> mDspositions_;
   shared_ptr<spdlog::logger> spLogger_;
   shared_ptr<spdlog::logger> spLoggerErr_;
+  // runtime exception tag
+  bool exceptions_{true};
 };
 
+// Compiler diagnostics
+inline std::unordered_map<std::string, Disposition> gCompDispMap = {
+    {"FILE_DOES_NOT_EXIST", error},    {"FILE_ERROR_READING", error},
+    {"LEXER_INPUT_BUFFER_SIZE", info}, {"LEXER_RULE_NOT_FOUND", error},
+    {"LEXER_SCANNER_ERROR", error},    {"LEXER_TOKEN_INFO", info}};
 }  // namespace ary
 
 // Macro definition for easy access to diagnostics
